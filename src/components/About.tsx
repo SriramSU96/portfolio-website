@@ -64,8 +64,8 @@ export const About = () => {
               My expertise lies in frontend development using <span className="text-[#C4526A]">Angular</span>, and I am currently advancing towards <strong className="text-[#D4C5BA] font-medium">full stack development</strong> and <span className="text-[#C4526A]">AI-driven applications</span>. I value clean design, performance, and continuous improvement.
             </p>
 
-            <p className="reveal about-p text-base leading-[1.9] text-[#F8F4F0]/80 font-normal" style={{ transitionDelay: '0.4s' }}>
-              My long-term vision is to establish myself as a <strong className="text-[#D4C5BA] font-medium">competitive developer</strong> and contribute to high-quality, impactful software systems.
+            <p className="reveal about-p text-base leading-[1.9] text-[#F8F4F0]/80 font-normal" style={{ transitionDelay: '0.3s' }}>
+              Long-term, I aim to position myself at the intersection of engineering and design — building software that is both precise and enduring.
             </p>
 
             <div className="about-stats-row flex gap-8 py-6 my-2 border-y border-[#6B1A2A]/25">
