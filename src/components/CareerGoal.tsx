@@ -50,20 +50,34 @@ export const CareerGoal = () => {
             <div className="quote-icon font-display font-black text-[80px] leading-none text-[#6B1A2A]/15 absolute -bottom-10 right-0 select-none">"</div>
           </div>
 
-          <div className="goal-actions mt-12 flex gap-6 flex-wrap">
+          <div className="goal-actions mt-16 flex gap-6 flex-wrap">
             <a
               href="#contact"
-              className="reveal-step btn-wine px-10 py-4 bg-[#6B1A2A] text-white font-mono text-[11px] tracking-[.3em] uppercase transition-all duration-300 hover:bg-[#8B2035] hover:shadow-[0_10px_30px_rgba(107,26,42,0.3)]"
+              className="reveal-step group relative overflow-hidden px-12 py-5 bg-[#6B1A2A]/80 text-white font-mono text-[11px] tracking-[0.35em] uppercase rounded-full transition-all duration-500 hover:shadow-[0_20px_40px_rgba(107,26,42,0.3)]"
               style={{ transitionDelay: '0.8s' }}
             >
-              Let's Build Together →
+              <span className="absolute inset-0 bg-gradient-to-r from-[#8B2035] to-[#C4526A] translate-y-full transition-transform duration-500 group-hover:translate-y-0"></span>
+              <span className="relative z-10 flex items-center gap-3">
+                Let's Build Together
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </a>
+
             <a
-              href="#"
-              className="reveal-step btn-outline-wine px-10 py-4 border border-[#6B1A2A]/40 text-[#9A8880] font-mono text-[11px] tracking-[.3em] uppercase transition-all duration-300 hover:border-[#C4526A] hover:text-[#C4526A]"
+              href="/resume.pdf"
+              download
+              className="reveal-step group relative px-12 py-5 border border-white/10 text-white/70 font-mono text-[11px] tracking-[0.35em] uppercase rounded-full transition-all duration-500 hover:text-white hover:border-[#C4526A]/50"
               style={{ transitionDelay: '0.9s' }}
             >
-              Download Resume
+              <span className="absolute inset-x-0 bottom-0 h-0 bg-[#C4526A]/5 transition-all duration-500 group-hover:h-full"></span>
+              <span className="relative z-10 flex items-center gap-3 font-medium">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Download Resume
+              </span>
             </a>
           </div>
         </div>
