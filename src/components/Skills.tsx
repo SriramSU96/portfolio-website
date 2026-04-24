@@ -62,14 +62,14 @@ export const Skills = () => {
               <div className="skill-card-glow absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,rgba(107,26,42,0.15),transparent_70%)] group-hover:opacity-100"></div>
 
               <div className="sk-icon mb-5 text-[#C4526A]">{sk.icon}</div>
-              <h3 className="sk-title font-display text-[22px] font-bold text-white mb-3">{sk.title}</h3>
-              <p className="sk-desc text-[13.5px] text-[#9A8880] leading-[1.7] mb-6 font-light">{sk.desc}</p>
+              <h3 className="sk-title font-display text-[25px] font-bold text-white mb-3">{sk.title}</h3>
+              <p className="sk-desc text-[16.5px] text-[#F8F4F0]/80 leading-[1.75] mb-6 font-normal">{sk.desc}</p>
 
               <div className="sk-tags flex flex-wrap gap-2.5">
                 {sk.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="sk-tag font-mono text-[9.5px] tracking-[.2em] uppercase px-3.5 py-1.5 border border-[#6B1A2A]/40 text-[#C4526A] bg-[#6B1A2A]/10 transition-all duration-300 hover:bg-[#6B1A2A]/30 hover:border-[#C4526A]/60 hover:text-[#F8F4F0]"
+                    className="sk-tag font-mono text-[12px] tracking-[.2em] uppercase px-3.5 py-1.5 border border-[#C4526A]/30 text-[#F8F4F0]/90 font-medium bg-[#C4526A]/15 transition-all duration-300 hover:bg-[#C4526A]/40 hover:border-[#C4526A]/70 hover:text-white"
                   >
                     {tag}
                   </span>
