@@ -1,14 +1,14 @@
 
 const COUNTERS = [
   { num: '1+', label: 'Year Experience' },
-  { num: '5+', label: 'Production Projects' },
+  { num: '4+', label: 'Production Projects' },
   { num: '100%', label: 'Dedication' },
   { num: '∞', label: 'Learning Drive' },
 ]
 
 const ITEMS = [
   '1+ year building real-world applications in production environments',
-  'Shipped 5+ responsive, user-centered web applications from concept to deployment',
+  'Shipped 4+ responsive, user-centered web applications from concept to deployment',
   'Deep focus on clean architecture, performance optimization, and exceptional UI/UX',
   'Actively mastering full-stack development and AI-enhanced workflows',
 ]
