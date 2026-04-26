@@ -1,20 +1,20 @@
 const ITEMS = [
   {
-    emoji: '⚡',
-    title: 'Advanced Task Management Platform',
-    detail: 'Developing a full-featured task system with real-time notifications, analytics dashboard, team roles & permissions, and drag-and-drop prioritization.',
-    badge: 'Active Development',
+    emoji: '🏭',
+    title: 'Industrial Automation Systems',
+    detail: 'Designing and developing production-grade web and desktop applications for machine-to-server communication and automated data ingestion pipelines at Acceedo.',
+    badge: 'Professional Focus',
     color: '#6B1A2A',
   },
   {
-    emoji: '🛠',
+    emoji: '🔄',
     title: 'Node.js & Express RESTful Backend',
     detail: 'Designing and implementing secure, scalable APIs — focusing on authentication, error handling, rate limiting, and MongoDB integration.',
     badge: 'Deepening Skills',
     color: '#C4526A',
   },
   {
-    emoji: '🤖',
+      emoji: '🤖',
     title: 'AI-Powered Web Features',
     detail: 'Experimenting with LLM integration (prompt engineering, context management, streaming responses) to create smarter, context-aware user interactions.',
     badge: 'Exploring & Prototyping',

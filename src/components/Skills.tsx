@@ -1,8 +1,8 @@
 const SKILLS = [
   {
     title: 'Frontend',
-    desc: 'Building responsive, high-performance interfaces with clean code and thoughtful UX.',
-    tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
+    desc: 'Building responsive, industrial-grade interfaces with Angular, RxJS, and high-performance state management.',
+    tags: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
     accent: '#6B1A2A',
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 128 128">
@@ -13,8 +13,8 @@ const SKILLS = [
   },
   {
     title: 'Backend & APIs',
-    desc: 'Creating reliable server-side logic, RESTful APIs, and scalable data solutions.',
-    tags: ['Node.js', 'Express', 'REST APIs', 'MongoDB', 'Firebase'],
+    desc: 'Creating reliable server-side logic, RESTful APIs, and scalable data solutions for automation workflows.',
+    tags: ['Node.js', 'Express.js', 'RESTful APIs', 'MongoDB', 'MySQL', 'SQL'],
     accent: '#8B2035',
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 128 128">
@@ -24,8 +24,8 @@ const SKILLS = [
   },
   {
     title: 'Dev Ecosystem',
-    desc: 'Streamlined workflows with modern tooling, version control, deployment pipelines & AI-assisted coding.',
-    tags: ['Git', 'GitHub', 'VS Code', 'Cursor', 'Claude', 'Figma', 'Postman', 'Vercel'],
+    desc: 'Streamlined workflows with modern tooling, Docker containerization, and real-time device communication.',
+    tags: ['Git', 'GitHub', 'Docker', 'Electron', 'Socket.io', 'WebSockets', 'Postman'],
     accent: '#6B1A2A',
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 128 128">

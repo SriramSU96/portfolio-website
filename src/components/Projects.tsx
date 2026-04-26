@@ -3,22 +3,22 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 
 const PROJECTS = [
   {
-    title: 'Task Management System',
-    category: 'Full Stack / Angular',
-    year: '2024',
+    title: 'Desktop Automation Application',
+    category: 'Industrial / Automation',
+    year: '2025',
     index: '01',
     description:
-      'A full-featured task management application for managers and employees. Features include task creation, assignment, priority tracking, and real-time updates.',
-    techs: ['Angular', 'Firebase', 'TypeScript', 'Tailwind'],
+      'A high-performance desktop automation system built with Electron and Angular to ingest and process industrial data from melting software, featuring real-time data tracking via IP and serial interfaces.',
+    techs: ['Angular', 'Electron', 'Node.js', 'RxJS', 'Serial Port'],
     image:
-      'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?auto=format&fit=crop&q=80&w=1800',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1800',
     liveUrl: '#',
     githubUrl: '#',
   },
   {
     title: 'Gym Management App',
     category: 'Frontend / Angular',
-    year: '2023',
+    year: '2025',
     index: '02',
     description:
       'A gym management application to manage member records, workout tracking, and subscription details with an organised interface for smooth daily operations.',
@@ -31,7 +31,7 @@ const PROJECTS = [
   {
     title: 'Melting Operations Monitor',
     category: 'Industrial / Process',
-    year: '2024',
+    year: '2025',
     index: '03',
     description:
       'A process-based application to manage and monitor melting operations, machine configurations, and production data for industrial efficiency.',
@@ -43,12 +43,12 @@ const PROJECTS = [
   },
   {
     title: 'Quality Management System',
-    category: 'Enterprise / QA',
-    year: '2023',
+    category: 'Industrial / Enterprise',
+    year: '2025',
     index: '04',
     description:
-      'A quality management application to track product quality, process parameters, and reporting through structured dashboards and monitoring tools.',
-    techs: ['Angular', 'JavaScript', 'D3.js', 'Bootstrap'],
+      'An industry-oriented web application designed to digitize shop-floor quality inspection workflows, featuring configurable validation rules and conditional state transitions for production control.',
+    techs: ['Angular', 'Node.js', 'Express.js', 'MongoDB'],
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1800',
     liveUrl: '#',
