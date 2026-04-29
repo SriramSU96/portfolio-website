@@ -77,12 +77,12 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
       <div className="relative z-[10] w-full pt-[10vh] lg:pt-[13vh] pb-4 flex justify-center pointer-events-none">
         <div className="hero-name-anim reveal-trigger relative" style={{ transitionDelay: '0.5s' }}>
           {/* Subtle red glow behind text (Reduced Intensity) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#8B2035] opacity-[0.1] blur-[80px] rounded-full pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#722F37] opacity-[0.1] blur-[80px] rounded-full pointer-events-none"></div>
 
-          <h1 className="font-display font-black text-[clamp(80px,18vw,230px)] leading-[0.8] tracking-[-.05em] uppercase text-center flex flex-wrap justify-center md:gap-2 m-0 relative z-10 scale-y-110">
-            {/* Reduced drop shadow */}
-            <span className="text-[#a51a36] drop-shadow-[0_0_20px_rgba(139,32,53,0.15)]">SRI</span>
-            <span className="text-[#a51a36] drop-shadow-[0_0_20px_rgba(139,32,53,0.15)]">RAM</span>
+          <h1 className="font-display font-black text-[clamp(80px,18vw,230px)] leading-[0.8] tracking-[0em] uppercase text-center flex flex-wrap justify-center md:gap-4 m-0 relative z-10 scale-y-110">
+            {/* Subtle vertical gradient and depth */}
+            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.3)]">SRI</span>
+            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.3)]">RAM</span>
           </h1>
         </div>
       </div>
@@ -93,13 +93,13 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         {/* Left Side: Description & CTA - Centered Vertically */}
         <div className="flex flex-col gap-6 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center z-20 self-center max-lg:mt-8 lg:-mt-[5vh]">
           <p className="hero-sub-anim reveal-trigger text-[clamp(15px,1.2vw,17px)] leading-[1.8] text-[#F8F4F0]/80 font-light max-w-[300px]" style={{ transitionDelay: '0.7s' }}>
-            Hey there! I'm a <strong className="text-white font-medium">Frontend Developer</strong> building fast, scalable, and clean applications in the global marketplace.
-          </p>
+              Hey there! I'm a <strong className="text-white font-medium">Frontend Developer</strong> building fast, scalable, and clean applications in the global marketplace.
+            </p>
 
-          <div className="hero-actions-anim reveal-trigger" style={{ transitionDelay: '0.9s' }}>
+            <div className="hero-actions-anim reveal-trigger" style={{ transitionDelay: '0.9s' }}>
             <a href="#contact" className="group inline-flex items-center gap-3 text-[#F8F4F0] font-mono text-[12px] tracking-[.3em] font-bold hover:text-[#C4526A] transition-colors uppercase">
-              // HIRE ME
-              <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                // HIRE ME
+                <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
             </a>
           </div>
         </div>
@@ -107,7 +107,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         {/* Center Side: Image */}
         <div className="relative w-full h-[45vh] sm:h-[55vh] lg:h-[70vh] flex justify-center items-end max-lg:order-1 max-lg:-mt-[15vh] z-10 pointer-events-none">
           {/* Arch styled image container */}
-          <div className="absolute bottom-0 w-[min(100%,480px)] h-[110%] rounded-t-[500px] overflow-hidden border-t border-x border-[#8B2035]/20 shadow-[0_-20px_80px_rgba(139,32,53,0.1)] bg-[#050102]">
+          <div className="absolute bottom-0 w-[min(100%,480px)] h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
             <img
               ref={photoRef}
               src="/photo.png"
@@ -118,8 +118,11 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
             {/* Bottom fade inside the arch to seamlessly blend with the background */}
             <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#050102] via-[#050102]/80 to-transparent z-[12]"></div>
 
-            {/* Soft inner glow around the arch edges */}
-            <div className="absolute inset-0 rounded-t-[500px] shadow-[inset_0_0_40px_rgba(139,32,53,0.1)] z-[13]"></div>
+            {/* Soft inner glow and 1px top rim light for brushed metal effect */}
+            <div className="absolute inset-0 rounded-t-[500px] shadow-[inset_0_0_80px_rgba(114,47,55,0.25),inset_0_1.5px_0_rgba(166,60,79,0.3)] z-[13]"></div>
+            
+            {/* Subtle noise texture over the arch */}
+            <div className="absolute inset-0 z-[14] mix-blend-overlay opacity-20 pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
           </div>
         </div>
 
@@ -199,7 +202,15 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         </div>
       </div>
 
+      {/* Scroll indicator */}
+      <div className="absolute bottom-20 lg:bottom-12 left-1/2 -translate-x-1/2 z-[20] flex flex-col items-center gap-3 pointer-events-none opacity-80">
+        <div className="w-[1px] h-12 bg-[#722F37]/20 overflow-hidden relative">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-[#A63C4F] to-transparent animate-[scroll-down_2s_ease-in-out_infinite]"></div>
+        </div>
+      </div>
+
       <style>{`
+        @keyframes scroll-down { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
         @keyframes bgTextReveal { from { opacity: 0; transform: scale(0.95) translate(-50%, -50%); filter: blur(10px); } to { opacity: 0.1; transform: scale(1) translate(-50%, -50%); filter: blur(0); } }
         @keyframes imageReveal { from { opacity: 0; transform: translateY(40px) scale(0.95); filter: grayscale(100%) brightness(0.5); } to { opacity: 0.7; transform: translateY(0) scale(1); filter: grayscale(20%) brightness(1); } }
         @keyframes nameScaleUp { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
