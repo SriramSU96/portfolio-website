@@ -27,7 +27,7 @@ export const About = () => {
 
               <img
                 ref={photoRef}
-                src="/photo.jpg"
+                src="/photo.png"
                 alt="Sriram coding"
                 className="w-full aspect-[4/5] object-cover object-top grayscale-[20%] contrast-[1.05] transition-all duration-800 group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:contrast-[1.08]"
               />

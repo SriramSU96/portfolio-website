@@ -168,14 +168,14 @@ export const Projects = () => {
             </div>
 
             <div className="flex gap-12">
-              <a href={project.liveUrl} className="group flex items-center gap-4 font-mono text-[12px] tracking-[0.3em] uppercase text-white/60 hover:text-[#C4526A] transition-colors">
+              {/* <a href={project.liveUrl} className="group flex items-center gap-4 font-mono text-[12px] tracking-[0.3em] uppercase text-white/60 hover:text-[#C4526A] transition-colors">
                 <span className="w-6 h-[1px] bg-white/20 group-hover:bg-[#C4526A] transition-colors" />
                 Live Demo
               </a>
               <a href={project.githubUrl} className="group flex items-center gap-4 font-mono text-[12px] tracking-[0.3em] uppercase text-white/60 hover:text-[#C4526A] transition-colors">
                 <span className="w-6 h-[1px] bg-white/20 group-hover:bg-[#C4526A] transition-colors" />
                 GitHub
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

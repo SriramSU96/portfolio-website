@@ -110,7 +110,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
           <div className="absolute bottom-0 w-[min(100%,480px)] h-[110%] rounded-t-[500px] overflow-hidden border-t border-x border-[#8B2035]/20 shadow-[0_-20px_80px_rgba(139,32,53,0.1)] bg-[#050102]">
             <img
               ref={photoRef}
-              src="/photo.jpg"
+              src="/photo.png"
               alt="Sriram — Developer"
               className="hero-image-anim reveal-trigger w-full h-full object-cover object-top opacity-70 contrast-[1.1] grayscale-[20%] mix-blend-screen"
               style={{ transitionDelay: '0.3s' }}
