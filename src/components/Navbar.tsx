@@ -85,15 +85,15 @@ export const Navbar = () => {
                 <a
                   href={l.href}
                   onClick={e => smoothScroll(e, l.href)}
-                  className={`font-mono text-[10px] tracking-[.3em] uppercase transition-colors duration-300 ${
-                    isActive ? 'text-white' : 'text-[#F8F4F0]/45 hover:text-[#F8F4F0]/90'
+                  className={`font-mono text-[11px] tracking-[.3em] uppercase transition-colors duration-300 ${
+                    isActive ? 'text-white font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-[#F8F4F0]/70 hover:text-white'
                   }`}
                 >
                   {l.label}
                 </a>
                 {/* Thin active indicator */}
                 <span
-                  className={`absolute -bottom-1 left-0 h-px bg-[#C4526A] transition-all duration-500 ${
+                  className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#C4526A] shadow-[0_0_8px_#C4526A] transition-all duration-500 ${
                     isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-40'
                   }`}
                 />
