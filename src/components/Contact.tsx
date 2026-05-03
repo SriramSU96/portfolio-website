@@ -34,7 +34,7 @@ const LINKS = [
   },
 ]
 
-const ContactCard = ({ link, index }: { link: any; index: number }) => {
+const ContactCard = ({ link, index, isInView }: { link: any; index: number; isInView: boolean }) => {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = (e: React.MouseEvent) => {
@@ -47,9 +47,9 @@ const ContactCard = ({ link, index }: { link: any; index: number }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.1 * index }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay: 0.4 + (0.1 * index) }}
       className="group relative flex items-center gap-6 p-6 rounded-2xl border border-white/5 bg-[#14080A]/80 backdrop-blur-xl transition-all duration-500 hover:border-[#6B1A2A]/50 hover:bg-[#1A0D10]"
     >
       <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover:border-[#C4526A]/30 group-hover:bg-[#6B1A2A]/20 transition-all duration-500 text-[#C4526A]">
@@ -70,11 +70,7 @@ const ContactCard = ({ link, index }: { link: any; index: number }) => {
         {copied ? 'COPIED' : 'COPY'}
       </button>
 
-      {/* Marker dot on the far right */}
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
-        <div className="w-[1px] h-8 bg-gradient-to-b from-transparent via-[#C4526A]/20 to-transparent mx-4"></div>
-        <div className="w-1.5 h-1.5 rounded-full border border-[#C4526A]/40 bg-[#6B1A2A]/20 shadow-[0_0_10px_rgba(196,82,106,0.3)]"></div>
-      </div>
+
     </motion.div>
   )
 }
@@ -88,7 +84,13 @@ export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!message.trim()) return
+    
     setStatus('sending')
+    
+    // Open user's email client with the message pre-filled
+    const mailtoLink = `mailto:sriram.dev@gmail.com?subject=${encodeURIComponent("New message from portfolio")}&body=${encodeURIComponent(message)}`
+    window.location.href = mailtoLink
+
     setTimeout(() => {
       setStatus('success')
       setMessage('')
@@ -181,7 +183,7 @@ export const Contact = () => {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-5">
               {LINKS.map((link, i) => (
-                <ContactCard key={i} link={link} index={i} />
+                <ContactCard key={i} link={link} index={i} isInView={isInView} />
               ))}
             </div>
 
@@ -216,7 +218,7 @@ export const Contact = () => {
         </div>
       </div>
 
- 
+
     </section>
   )
 }

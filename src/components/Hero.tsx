@@ -92,14 +92,21 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
         {/* Left Side: Description & CTA - Centered Vertically */}
         <div className="flex flex-col gap-6 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center z-20 self-center max-lg:mt-8 lg:-mt-[5vh]">
-          <p className="hero-sub-anim reveal-trigger text-[clamp(15px,1.2vw,17px)] leading-[1.8] text-[#F8F4F0]/80 font-light max-w-[300px]" style={{ transitionDelay: '0.7s' }}>
-              Hey there! I'm a <strong className="text-white font-medium">Frontend Developer</strong> building fast, scalable, and clean applications in the global marketplace.
-            </p>
+          <p className="hero-sub-anim reveal-trigger text-[clamp(15px,1.2vw,17px)] leading-[1.8] text-[#F8F4F0]/80 font-light max-w-[340px]" style={{ transitionDelay: '0.7s' }}>
+            Hey there! I'm a <strong className="text-white font-medium">Frontend Developer</strong> focused on clean code and building fast, scalable applications across platforms.
+          </p>
 
-            <div className="hero-actions-anim reveal-trigger" style={{ transitionDelay: '0.9s' }}>
-            <a href="#contact" className="group inline-flex items-center gap-3 text-[#F8F4F0] font-mono text-[12px] tracking-[.3em] font-bold hover:text-[#C4526A] transition-colors uppercase">
-                // HIRE ME
-                <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+          <div className="hero-actions-anim reveal-trigger pt-2" style={{ transitionDelay: '0.9s' }}>
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center gap-3 px-7 py-3.5 border border-white/20 text-[13px] tracking-wide text-[#F8F4F0] hover:text-white hover:border-[#C4526A]/50 transition-all duration-500 rounded-[2px] overflow-hidden bg-white/[0.02] backdrop-blur-sm"
+            >
+              <span className="relative z-10 flex items-center gap-3 font-medium">
+                <span className="text-[#C4526A] font-mono">//</span>
+                Let’s Work Together
+                <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+              </span>
+              <span className="absolute inset-0 bg-[#C4526A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
           </div>
         </div>
@@ -120,7 +127,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
             {/* Soft inner glow and 1px top rim light for brushed metal effect */}
             <div className="absolute inset-0 rounded-t-[500px] shadow-[inset_0_0_80px_rgba(114,47,55,0.25),inset_0_1.5px_0_rgba(166,60,79,0.3)] z-[13]"></div>
-            
+
             {/* Subtle noise texture over the arch */}
             <div className="absolute inset-0 z-[14] mix-blend-overlay opacity-20 pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
           </div>
@@ -132,7 +139,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
           className="flex flex-col lg:text-right max-lg:order-3 max-lg:items-center z-20 self-center max-lg:mt-8 lg:-mt-[5vh] lg:min-w-[220px]"
         >
           {/* Label */}
-          <p className="font-mono text-[10px] tracking-[.35em] uppercase text-[#6B1A2A] mb-5 max-lg:hidden">
+          <p className="font-mono text-[12px] tracking-[.35em] uppercase text-[#C4526A]/80 font-semibold mb-5 max-lg:hidden drop-shadow-[0_0_8px_rgba(196,82,106,0.3)]">
             Expertise
           </p>
 
@@ -172,11 +179,14 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         </div>
       </div>
 
-      {/* Bottom Ticker bar representing the logos bar in the image - Brightened Text */}
-      <div className="hero-ticker-anim reveal-trigger relative z-[10] w-full border-t border-[#6B1A2A]/20 py-5 bg-[#050102] overflow-hidden flex items-center" style={{ transitionDelay: '1.4s' }}>
-        {/* Gradient fades for ticker edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050102] to-transparent z-[11] pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050102] to-transparent z-[11] pointer-events-none"></div>
+      {/* Bottom Ticker bar - Cinematic Premium Version */}
+      <div className="hero-ticker-anim reveal-trigger relative z-[10] w-full border-t border-[#6B1A2A]/30 py-6 bg-black/40 backdrop-blur-md overflow-hidden flex items-center" style={{ transitionDelay: '1.4s' }}>
+        {/* Cinematic edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-[11] pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-[11] pointer-events-none"></div>
+
+        {/* Subtle top highlight for the bar */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C4526A]/40 to-transparent z-[12]"></div>
 
         <div
           ref={tickerRef}
@@ -190,13 +200,51 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
           }}
         >
           {[1, 2, 3, 4].map((group) => (
-            <div key={group} className="flex shrink-0 items-center gap-[6vw] px-[3vw]" style={{ transform: 'translate3d(0,0,0)' }}>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-5 h-5 rounded-sm bg-[#8B2035]/40 flex items-center justify-center text-[11px] text-[#F8F4F0] font-bold">▲</div> Angular</div>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-5 h-5 rounded-full border-2 border-[#C4526A]/60"></div> React</div>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-5 h-5 bg-[#C4526A]/40 rotate-45 border border-[#C4526A]/20"></div> TypeScript</div>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-6 h-3 bg-[#8B2035]/50 rounded-sm"></div> Tailwind</div>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-5 h-5 rounded-full border-2 border-dashed border-[#C4526A]/60"></div> Node.js</div>
-              <div className="flex items-center gap-3 text-[#F8F4F0] font-display text-[16px] md:text-[18px] hover:text-[#C4526A] transition-colors"><div className="w-4 h-4 bg-[#C4526A]/50 shadow-[0_0_10px_rgba(196,82,106,0.3)]"></div> Figma</div>
+            <div key={group} className="flex shrink-0 items-center gap-[8vw] px-[4vw]" style={{ transform: 'translate3d(0,0,0)' }}>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#8B2035] group-hover:text-[#C4526A] group-hover:drop-shadow-[0_0_8px_#C4526A] transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 5.63v12.74L12 22l10-3.63V5.63L12 2zm0 3.16l7.84 2.85v10.15L12 19.84l-7.84-3.68V8.01L12 5.16zm0 2.2l-4.5 10.1h2.2l.9-2.3h4.8l.9 2.3h2.2l-4.5-10.1zm0 2.2l1.6 4.1h-3.2l1.6-4.1z" />
+                </svg>
+                Angular
+              </div>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#C4526A]/60 group-hover:text-[#C4526A] group-hover:drop-shadow-[0_0_8px_#C4526A] transition-all duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                </svg>
+                React
+              </div>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#C4526A]/60 group-hover:text-white group-hover:drop-shadow-[0_0_8px_white] transition-all duration-500" viewBox="0 0 24 24">
+                  <mask id={`ts-mask-${group}`}>
+                    <rect width="24" height="24" fill="white" />
+                    <text x="12" y="17" fontFamily="Arial, Helvetica, sans-serif" fontSize="11" fontWeight="bold" fill="black" textAnchor="middle" style={{ letterSpacing: '-0.5px' }}>TS</text>
+                  </mask>
+                  <rect width="24" height="24" fill="currentColor" mask={`url(#ts-mask-${group})`} />
+                </svg>
+                TypeScript
+              </div>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#8B2035]/60 group-hover:text-[#C4526A] group-hover:drop-shadow-[0_0_8px_#C4526A] transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.377 1.394 2.738 2.776 5.712 2.776 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624-1.377-1.394-2.738-2.776-5.712-2.776zM6.001 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+                </svg>
+                Tailwind
+              </div>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#8B2035]/60 group-hover:text-[#C4526A] group-hover:drop-shadow-[0_0_8px_#C4526A] transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L4.5 6.33v8.66L12 19.33l7.5-4.34V6.33L12 2zm5.5 12.07l-5.5 3.18-5.5-3.18V7.59l5.5-3.18 5.5 3.18v6.66z" />
+                  <path d="M12 6.5l-4 2.3v4.4l4 2.3 4-2.3v-4.4l-4-2.3zm2.5 6.07l-2.5 1.44-2.5-1.44V9.09l2.5-1.44 2.5 1.44v3.48z" />
+                </svg>
+                Node.js
+              </div>
+              <div className="group flex items-center gap-4 text-[#F8F4F0]/60 font-mono text-[13px] tracking-widest hover:text-white transition-all duration-500 cursor-default uppercase">
+                <svg className="w-5 h-5 text-[#C4526A]/60 group-hover:text-white group-hover:drop-shadow-[0_0_8px_white] transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 2a3.5 3.5 0 000 7h.5v1H8a3.5 3.5 0 000 7h.5v1a3.5 3.5 0 107 0v-1h.5a3.5 3.5 0 100-7H15.5v-1h.5a3.5 3.5 0 100-7H15.5V2H8zm4 3.5v3.5h3.5A3.5 3.5 0 1112 5.5zM12 9v3.5H8.5A3.5 3.5 0 1112 9zm0 3.5v3.5h3.5a3.5 3.5 0 11-3.5-3.5zm0 3.5V13h-3.5a3.5 3.5 0 103.5 3.5z" />
+                </svg>
+                Figma
+              </div>
             </div>
           ))}
         </div>

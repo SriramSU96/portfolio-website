@@ -90,7 +90,7 @@ export const Projects = () => {
               initial={{ opacity: 0, scale: 1.2, filter: 'blur(15px) brightness(0.3)' }}
               animate={{ opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)' }}
               exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px) brightness(0.4)' }}
-              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0"
             >
               <img
@@ -220,7 +220,7 @@ export const Projects = () => {
         .pj-entrance-top, .pj-entrance-cat, .pj-entrance-title, .pj-entrance-content, .pj-entrance-bottom, .pj-entrance-num {
           opacity: 0;
           filter: blur(10px);
-          transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2.2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s ease;
+          transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
         }
 
         .pj-entrance-top, .pj-entrance-cat, .pj-entrance-title, .pj-entrance-content, .pj-entrance-bottom {
@@ -232,11 +232,11 @@ export const Projects = () => {
         }
 
         .reveal-trigger.visible .pj-entrance-top { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.1s; }
-        .reveal-trigger.visible .pj-entrance-cat { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.3s; }
-        .reveal-trigger.visible .pj-entrance-title { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.5s; }
-        .reveal-trigger.visible .pj-entrance-content { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.8s; }
-        .reveal-trigger.visible .pj-entrance-bottom { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 1.1s; }
-        .reveal-trigger.visible .pj-entrance-num { opacity: 1; transform: translateY(-50%) translateX(0); filter: blur(0); transition-delay: 0.4s; }
+        .reveal-trigger.visible .pj-entrance-cat { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.2s; }
+        .reveal-trigger.visible .pj-entrance-title { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.3s; }
+        .reveal-trigger.visible .pj-entrance-content { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.5s; }
+        .reveal-trigger.visible .pj-entrance-bottom { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.7s; }
+        .reveal-trigger.visible .pj-entrance-num { opacity: 1; transform: translateY(-50%) translateX(0); filter: blur(0); transition-delay: 0.3s; }
       `}</style>
     </section>
   )

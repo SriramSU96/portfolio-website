@@ -10,8 +10,8 @@ export const useMagnetic = (strength = 0.3) => {
     const onMove = (e: MouseEvent) => {
       const r = el.getBoundingClientRect()
       gsap.to(el, {
-        x: (e.clientX - r.left - r.width  / 2) * strength,
-        y: (e.clientY - r.top  - r.height / 2) * strength,
+        x: (e.clientX - r.left - r.width / 2) * strength,
+        y: (e.clientY - r.top - r.height / 2) * strength,
         duration: 0.4, ease: 'power2.out',
       })
     }

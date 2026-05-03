@@ -85,8 +85,8 @@ export const Navbar = () => {
                 <a
                   href={l.href}
                   onClick={e => smoothScroll(e, l.href)}
-                  className={`font-mono text-[11px] tracking-[.3em] uppercase transition-colors duration-300 ${
-                    isActive ? 'text-white font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-[#F8F4F0]/70 hover:text-white'
+                  className={`text-[12px] tracking-[.15em] uppercase transition-colors duration-300 ${
+                    isActive ? 'text-white font-semibold' : 'text-[#F8F4F0]/80 hover:text-white'
                   }`}
                 >
                   {l.label}
@@ -107,9 +107,9 @@ export const Navbar = () => {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 border border-white/10 font-mono text-[9px] tracking-[.35em] uppercase text-[#F8F4F0]/60 hover:text-white hover:border-[#C4526A]/50 transition-all duration-400 rounded-[2px] relative overflow-hidden group"
+          className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 border border-white/20 text-[12px] tracking-[.15em] uppercase text-[#F8F4F0]/90 hover:text-white hover:border-[#C4526A]/50 transition-all duration-400 rounded-[2px] relative overflow-hidden group"
         >
-          <span className="relative z-10">Resume</span>
+          <span className="relative z-10 font-medium">Resume</span>
           <svg className="relative z-10 w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
@@ -162,7 +162,7 @@ export const Navbar = () => {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className={`mt-16 relative z-10 font-mono text-[9px] tracking-[.4em] uppercase text-[#F8F4F0]/30 hover:text-[#C4526A] transition-all duration-400 ${
+          className={`mt-16 relative z-10 text-[13px] tracking-[.2em] uppercase text-[#F8F4F0]/70 hover:text-[#C4526A] transition-all duration-400 ${
             mobileOpen ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ transitionDelay: mobileOpen ? '380ms' : '0ms' }}

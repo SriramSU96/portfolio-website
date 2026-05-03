@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLenis } from './hooks/useLenis'
 import { Preloader } from './components/Preloader'
-import { CustomCursor } from './components/CustomCursor'
+
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <div className="noise-layer relative">
-      {!isMobile && <CustomCursor />}
+
 
       {showPreloader && <Preloader onComplete={handlePreloaderDone} />}
 
