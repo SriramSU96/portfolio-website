@@ -4,6 +4,7 @@ import { Preloader } from './components/Preloader'
 
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { CardStackOverlay } from './components/CardStackOverlay'
 import { About } from './components/About'
 import { Skills } from './components/Skills'
 import { Projects } from './components/Projects'
@@ -66,9 +67,15 @@ export default function App() {
       }}>
         <Navbar />
         <main>
-          <Hero appReady={appReady} />
-          <About />
-          <Skills />
+          <CardStackOverlay 
+            page1={<Hero appReady={appReady} />} 
+            page2={
+              <div className="w-full h-full overflow-y-auto">
+                <About />
+                <Skills />
+              </div>
+            } 
+          />
           <Projects />
           <Highlights />
           <CurrentlyWorkingOn />

@@ -56,7 +56,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen w-full overflow-hidden flex flex-col justify-between bg-[#050102]">
+    <section id="hero" className="relative min-h-[100svh] w-full overflow-x-hidden flex flex-col justify-between bg-[#050102]">
       {/* Background layer */}
       <ParticleCanvas />
 
@@ -81,19 +81,19 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
           <h1 className="font-display font-black text-[clamp(80px,18vw,230px)] leading-[0.8] tracking-[0em] uppercase text-center flex flex-wrap justify-center md:gap-4 m-0 relative z-10 scale-y-110">
             {/* Subtle vertical gradient and depth */}
-            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.3)]">SRI</span>
-            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.3)]">RAM</span>
+            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.2)] opacity-85">SRI</span>
+            <span className="bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(107,26,42,0.2)] opacity-85">RAM</span>
           </h1>
         </div>
       </div>
 
       {/* Grid container for Left, Center Image, Right Content */}
-      <div className="relative z-[11] flex-1 w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 items-end pb-8 lg:pb-0 px-6 lg:px-12 mt-auto">
+      <div className="relative z-[11] flex-1 w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 items-center lg:items-end pb-12 lg:pb-0 px-6 lg:px-12 mt-auto gap-y-8 lg:gap-y-0 pt-8 lg:pt-0">
 
         {/* Left Side: Description & CTA - Centered Vertically */}
-        <div className="flex flex-col gap-6 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center z-20 self-center max-lg:mt-8 lg:-mt-[5vh]">
-          <p className="hero-sub-anim reveal-trigger text-[clamp(15px,1.2vw,17px)] leading-[1.8] text-[#F8F4F0]/80 font-light max-w-[340px]" style={{ transitionDelay: '0.7s' }}>
-            Hey there! I'm a <strong className="text-white font-medium">Frontend Developer</strong> focused on clean code and building fast, scalable applications across platforms.
+        <div className="flex flex-col gap-6 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center z-20 self-center lg:-mt-[5vh]">
+          <p className="hero-sub-anim reveal-trigger text-[clamp(16px,1.2vw,18px)] leading-relaxed text-[#F8F4F0] max-w-[380px] drop-shadow-sm" style={{ transitionDelay: '0.7s' }}>
+            Hey there! I'm a <strong className="text-white font-semibold tracking-wide">Frontend Developer</strong> focused on clean code and building fast, scalable applications across platforms.
           </p>
 
           <div className="hero-actions-anim reveal-trigger pt-2" style={{ transitionDelay: '0.9s' }}>
@@ -112,9 +112,9 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         </div>
 
         {/* Center Side: Image */}
-        <div className="relative w-full h-[45vh] sm:h-[55vh] lg:h-[70vh] flex justify-center items-end max-lg:order-1 max-lg:-mt-[15vh] z-10 pointer-events-none">
+        <div className="relative w-full h-[45vh] sm:h-[50vh] lg:h-[70vh] flex justify-center items-end max-lg:order-1 max-lg:-mt-[5vh] z-10 pointer-events-none">
           {/* Arch styled image container */}
-          <div className="absolute bottom-0 w-[min(100%,480px)] h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
+          <div className="absolute bottom-0 w-[85%] max-w-[380px] lg:w-[min(100%,480px)] lg:max-w-none h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
             <img
               ref={photoRef}
               src="/photo.png"
@@ -136,7 +136,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         {/* Right Side: Skills/Services List - Centered Vertically */}
         <div
           ref={skillsRef}
-          className="flex flex-col lg:text-right max-lg:order-3 max-lg:items-center z-20 self-center max-lg:mt-8 lg:-mt-[5vh] lg:min-w-[220px]"
+          className="flex flex-col lg:text-right max-lg:order-3 max-lg:items-center z-20 self-center lg:-mt-[5vh] lg:min-w-[220px]"
         >
           {/* Label */}
           <p className="font-mono text-[12px] tracking-[.35em] uppercase text-[#C4526A]/80 font-semibold mb-5 max-lg:hidden drop-shadow-[0_0_8px_rgba(196,82,106,0.3)]">
@@ -164,7 +164,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
               <span
                 className={`relative z-10 font-display tracking-wide text-[clamp(13px,1.1vw,16px)] transition-colors duration-300 ${skill.active
                   ? 'text-white font-semibold'
-                  : 'text-[#F8F4F0]/50 font-light group-hover:text-[#F8F4F0]/90'
+                  : 'text-[#F8F4F0]/80 group-hover:text-white'
                   }`}
               >
                 {skill.name}
