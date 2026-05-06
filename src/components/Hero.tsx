@@ -151,14 +151,14 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
           ].map((skill) => (
             <div
               key={skill.name}
-              className="skill-item group relative flex items-center gap-3 lg:justify-end max-lg:justify-center py-3 border-b border-white/[0.05] last:border-0 overflow-hidden"
+              className="skill-item group relative flex items-center gap-3 lg:justify-end max-lg:justify-center py-3 overflow-hidden"
             >
               {/* Hover scan-line */}
               <span className="absolute inset-0 bg-gradient-to-l from-[#C4526A]/5 to-transparent translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out pointer-events-none" />
 
               {/* Active dot (desktop — sits to the left of text, which is on right) */}
               {skill.active && (
-                <span className="max-lg:hidden w-1.5 h-1.5 rounded-full bg-[#C4526A] shadow-[0_0_8px_#C4526A] animate-pulse flex-shrink-0" />
+                <span className="max-lg:hidden w-1.5 h-1.5 rounded-full bg-[#C4526A] shadow-[0_0_8px_#C4526A] flex-shrink-0" />
               )}
 
               <span
@@ -172,7 +172,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
               {/* Active dot (mobile — sits to right of text) */}
               {skill.active && (
-                <span className="lg:hidden w-1.5 h-1.5 rounded-full bg-[#C4526A] shadow-[0_0_8px_#C4526A] animate-pulse flex-shrink-0" />
+                <span className="lg:hidden w-1.5 h-1.5 rounded-full bg-[#C4526A] shadow-[0_0_8px_#C4526A] flex-shrink-0" />
               )}
             </div>
           ))}
