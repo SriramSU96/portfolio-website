@@ -47,7 +47,7 @@ export const CurrentlyWorkingOn = () => {
               className="reveal tl-item relative mb-14 last:mb-0 group"
               style={{ transitionDelay: `${i * 0.2}s` }}
             >
-              <div className="tl-dot absolute left-[-44px] top-6 w-3 h-3 bg-[#1A0D10] border-2 border-[#C4526A] z-10 transition-all duration-400 group-hover:scale-125 group-hover:bg-[#C4526A] group-hover:shadow-[0_0_12px_#C4526A]"></div>
+              <div className="tl-dot absolute left-[-46px] max-md:left-[-24px] max-md:-translate-x-1/2 top-6 w-3 h-3 bg-[#1A0D10] border-2 border-[#C4526A] z-10 transition-all duration-400 group-hover:scale-125 group-hover:bg-[#C4526A] group-hover:shadow-[0_0_12px_#C4526A]"></div>
 
               <div className="working-card p-8 border border-[#6B1A2A]/15 bg-[#1A0D10] relative overflow-hidden transition-all duration-500 hover:border-[#6B1A2A]/40 hover:translate-x-2">
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#6B1A2A] to-transparent scale-x-0 origin-left transition-transform duration-600 group-hover:scale-x-100"></div>

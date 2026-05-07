@@ -126,12 +126,12 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
         {/* Center Side: Image */}
         <div className="relative w-full h-[clamp(300px,48svh,390px)] sm:h-[48vh] lg:h-[70vh] lg:max-h-none flex justify-center items-end max-lg:order-1 z-10 pointer-events-none">
-          <h1 className="absolute top-[4px] left-1/2 z-[8] -translate-x-1/2 font-display font-black text-[clamp(58px,22vw,92px)] leading-none tracking-[-0.045em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] opacity-80 whitespace-nowrap lg:hidden select-none">
+          <h1 className="absolute top-[-10px] left-1/2 z-[8] -translate-x-1/2 font-display font-black text-[clamp(58px,22vw,92px)] leading-none tracking-[-0.045em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] opacity-80 whitespace-nowrap lg:hidden select-none">
             SRIRAM
           </h1>
 
           {/* Arch styled image container */}
-          <div className="absolute bottom-[5px] z-[10] w-[78%] max-w-[320px] lg:w-[min(100%,480px)] lg:max-w-none h-[94%] lg:h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
+          <div className="absolute bottom-[-18px] lg:bottom-[5px] z-[10] w-[64%] max-w-[320px] lg:w-[min(100%,480px)] lg:max-w-none h-[94%] lg:h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
             <img
               ref={photoRef}
               src="/photo.png"
