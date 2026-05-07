@@ -48,9 +48,24 @@ export const Navbar = () => {
 
   const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
+    setActiveHref(href)
     setMobileOpen(false)
-    const target = document.querySelector(href)
-    if (target) target.scrollIntoView({ behavior: 'smooth' })
+
+    const scrollToTarget = () => {
+      const target = document.querySelector<HTMLElement>(href)
+      if (!target) return
+      const offset = href === '#contact' ? 24 : -80
+
+      if (window.portfolioLenis) {
+        window.portfolioLenis.scrollTo(target, { offset })
+        return
+      }
+
+      const top = target.getBoundingClientRect().top + window.scrollY + offset
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+
+    requestAnimationFrame(() => requestAnimationFrame(scrollToTarget))
   }
 
   return (

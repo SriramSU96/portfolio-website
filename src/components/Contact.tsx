@@ -10,8 +10,8 @@ const LINKS = [
       </svg>
     ),
     label: 'EMAIL',
-    value: 'Sriramsekar9600@gmail.com',
-    href: 'mailto:Sriramsekar9600@gmail.com',
+    value: 'Sriramsekardev@gmail.com',
+    href: 'mailto:Sriramsekardev@gmail.com',
   },
   {
     icon: (
@@ -105,7 +105,7 @@ export const Contact = () => {
           from_email: email,
           purpose: purpose || 'Not specified',
           message,
-          to_email: 'Sriramsekar9600@gmail.com',
+          to_email: 'sriramsekardev@gmail.com',
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
@@ -120,10 +120,12 @@ export const Contact = () => {
   }
 
   const inputBase =
-    'w-full bg-[#0E0608]/70 border border-white/8 rounded-xl px-4 py-3 text-white text-[14px] placeholder:text-white/20 outline-none focus:border-[#C4526A]/50 focus:bg-[#14080A] transition-all duration-300 font-light'
+    'w-full bg-[#0E0608]/75 border border-[#6B1A2A]/45 rounded-xl px-4 py-2.5 text-white text-[14px] placeholder:text-[#D4C5BA]/35 outline-none hover:border-[#C4526A]/45 focus:border-[#C4526A]/75 focus:bg-[#14080A] transition-all duration-300 font-light'
+  const labelBase =
+    'block font-mono text-[11px] tracking-[0.22em] text-[#E06F86] uppercase mb-2 font-bold subpixel-antialiased'
 
   return (
-    <section id="contact" ref={sectionRef} className="bg-[#0E0608] py-32 max-md:py-20 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="bg-[#0E0608] py-24 max-md:py-16 relative overflow-hidden">
       {/* Decorative Atmosphere */}
       <div className="absolute top-0 right-0 w-full h-[150vh] pointer-events-none opacity-20">
         <svg viewBox="0 0 1000 1000" className="w-full h-full">
@@ -146,7 +148,7 @@ export const Contact = () => {
 
       <div className="max-w-[1400px] mx-auto px-20 max-md:px-8 relative z-10">
         {/* Section label */}
-        <div className="mb-16">
+        <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -170,10 +172,10 @@ export const Contact = () => {
         </div>
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
 
           {/* Left: Bio + Resume + Contact Cards */}
-          <div className="flex flex-col gap-8">
+          <div className="flex h-full flex-col justify-between gap-8">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -219,15 +221,15 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="rounded-3xl border border-white/5 bg-[#14080A]/60 backdrop-blur-xl p-8 flex flex-col gap-5"
+            className="rounded-3xl border border-[#6B1A2A]/30 bg-[#14080A]/70 backdrop-blur-xl p-6 lg:-mt-6 flex flex-col gap-4 shadow-[0_24px_80px_rgba(8,3,5,0.35)]"
           >
             {/* Form header — premium numbered style */}
-            <div className="relative mb-2 pb-6 border-b border-white/[0.06]">
+            <div className="relative pb-5 border-b border-[#6B1A2A]/25">
               {/* Ghost large number */}
               <span className="absolute -top-3 -right-2 font-display font-black text-[80px] leading-none text-transparent [-webkit-text-stroke:1px_rgba(196,82,106,0.08)] select-none pointer-events-none">
                 01
               </span>
-              <p className="font-mono text-[10px] tracking-[0.5em] text-[#C4526A]/60 uppercase mb-3">
+              <p className="font-mono text-[10px] tracking-[0.5em] text-[#F0A0B0]/75 uppercase mb-3">
                 // New Message
               </p>
               <h3 className="font-display font-semibold text-[26px] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#F8F4F0] via-[#C4526A]/80 to-[#F8F4F0]">
@@ -235,10 +237,10 @@ export const Contact = () => {
               </h3>
             </div>
 
-            <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col gap-3.5">
               {/* Name */}
               <div>
-                <label className="block font-mono text-[10px] tracking-[0.3em] text-[#C4526A]/60 uppercase mb-1.5">Name *</label>
+                <label className={labelBase}>Name *</label>
                 <input
                   id="form-name"
                   name="name"
@@ -252,9 +254,9 @@ export const Contact = () => {
               </div>
 
               {/* Contact No & Email */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-mono text-[10px] tracking-[0.3em] text-[#C4526A]/60 uppercase mb-1.5">Contact No</label>
+                  <label className={labelBase}>Contact No</label>
                   <input
                     id="form-contact"
                     name="contact"
@@ -266,7 +268,7 @@ export const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-[10px] tracking-[0.3em] text-[#C4526A]/60 uppercase mb-1.5">Email *</label>
+                  <label className={labelBase}>Email *</label>
                   <input
                     id="form-email"
                     name="email"
@@ -282,7 +284,7 @@ export const Contact = () => {
 
               {/* Purpose */}
               <div>
-                <label className="block font-mono text-[10px] tracking-[0.3em] text-[#C4526A]/60 uppercase mb-1.5">Purpose</label>
+                <label className={labelBase}>Purpose</label>
                 <select
                   id="form-purpose"
                   name="purpose"
@@ -299,7 +301,7 @@ export const Contact = () => {
 
               {/* Message */}
               <div>
-                <label className="block font-mono text-[10px] tracking-[0.3em] text-[#C4526A]/60 uppercase mb-1.5">Message *</label>
+                <label className={labelBase}>Message *</label>
                 <textarea
                   id="form-message"
                   name="message"
@@ -307,7 +309,7 @@ export const Contact = () => {
                   placeholder="Tell me about your project or idea…"
                   value={form.message}
                   onChange={handleChange}
-                  rows={4}
+                  rows={3}
                   className={`${inputBase} resize-none`}
                 />
               </div>
@@ -329,10 +331,10 @@ export const Contact = () => {
                   {status === 'sent'
                     ? '✓ Message Sent!'
                     : status === 'error'
-                    ? '✗ Failed — Try Again'
-                    : status === 'sending'
-                    ? 'Sending…'
-                    : 'Send Message'}
+                      ? '✗ Failed — Try Again'
+                      : status === 'sending'
+                        ? 'Sending…'
+                        : 'Send Message'}
                 </span>
               </button>
             </form>

@@ -1,11 +1,24 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type CSSProperties } from 'react'
 import gsap from 'gsap'
 import { ParticleCanvas } from '../3d/ParticleCanvas'
 
 export const Hero = ({ appReady }: { appReady: boolean }) => {
+  const heroRef = useRef<HTMLElement>(null)
   const photoRef = useRef<HTMLImageElement>(null)
   const tickerRef = useRef<HTMLDivElement>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!appReady || !heroRef.current) return
+
+    const frame = requestAnimationFrame(() => {
+      heroRef.current?.querySelectorAll('.hero-reveal').forEach((el) => {
+        el.classList.add('visible')
+      })
+    })
+
+    return () => cancelAnimationFrame(frame)
+  }, [appReady])
 
   useEffect(() => {
     if (!tickerRef.current) return
@@ -56,7 +69,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-[100svh] w-full overflow-x-hidden flex flex-col justify-between bg-[#050102]">
+    <section ref={heroRef} id="hero" className="relative min-h-[100svh] w-full overflow-x-hidden flex flex-col justify-between bg-[#050102]">
       {/* Background layer */}
       <ParticleCanvas />
 
@@ -68,14 +81,14 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
       {/* Background large text (Faint behind everything) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[3] w-full text-center pointer-events-none select-none overflow-hidden">
-        <h1 className="hero-bg-text-anim reveal-trigger font-display font-black text-[clamp(150px,35vw,600px)] leading-none text-transparent [-webkit-text-stroke:1px_rgba(107,26,42,0.15)] opacity-10 tracking-[-0.05em] whitespace-nowrap" style={{ transitionDelay: '0.1s' }}>
+        <h1 className="hero-bg-text-anim hero-reveal font-display font-black text-[clamp(150px,35vw,600px)] leading-none text-transparent [-webkit-text-stroke:1px_rgba(107,26,42,0.15)] opacity-10 tracking-[-0.05em] whitespace-nowrap" style={{ '--delay': '0.1s' } as CSSProperties}>
           SRIRAM
         </h1>
       </div>
 
       {/* Top Main Heading Content */}
-      <div className="relative z-[10] w-full pt-[10vh] lg:pt-[13vh] pb-4 flex justify-center pointer-events-none">
-        <div className="hero-name-anim reveal-trigger relative" style={{ transitionDelay: '0.5s' }}>
+      <div className="relative z-[10] hidden w-full pt-[13vh] pb-4 lg:flex justify-center pointer-events-none">
+        <div className="hero-name-anim hero-reveal relative" style={{ '--delay': '0.5s' } as CSSProperties}>
           {/* Subtle red glow behind text (Reduced Intensity) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#722F37] opacity-[0.1] blur-[80px] rounded-full pointer-events-none"></div>
 
@@ -88,18 +101,18 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
       </div>
 
       {/* Grid container for Left, Center Image, Right Content */}
-      <div className="relative z-[11] flex-1 w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 items-center lg:items-end pb-12 lg:pb-0 px-6 lg:px-12 mt-auto gap-y-8 lg:gap-y-0 pt-8 lg:pt-0">
+      <div className="relative z-[11] flex-1 w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 items-center lg:items-end pb-3 lg:pb-0 px-4 lg:px-12 mt-auto gap-y-0 lg:gap-y-0 pt-[8.5vh] lg:pt-0">
 
         {/* Left Side: Description & CTA - Centered Vertically */}
-        <div className="flex flex-col gap-6 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center z-20 self-center lg:-mt-[5vh]">
-          <p className="hero-sub-anim reveal-trigger text-[clamp(16px,1.2vw,18px)] leading-relaxed text-[#F8F4F0] max-w-[380px] drop-shadow-sm" style={{ transitionDelay: '0.7s' }}>
+        <div className="hero-left-anim hero-reveal flex flex-col gap-2.5 lg:gap-8 max-lg:order-2 max-lg:items-center max-lg:text-center max-lg:-mt-7 z-20 self-center lg:-mt-[5vh]" style={{ '--delay': '0.9s' } as CSSProperties}>
+          <p className="text-[13px] sm:text-[15px] lg:text-[clamp(16px,1.2vw,18px)] leading-relaxed text-[#F8F4F0] max-w-[360px] lg:max-w-[380px] drop-shadow-sm">
             Hey there! I'm a <strong className="text-white font-semibold tracking-wide">Frontend Developer</strong> focused on clean code and building fast, scalable applications across platforms.
           </p>
 
-          <div className="hero-actions-anim reveal-trigger pt-2" style={{ transitionDelay: '0.9s' }}>
+          <div className="pt-0 lg:pt-2">
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-3 px-7 py-3.5 border border-white/20 text-[13px] tracking-wide text-[#F8F4F0] hover:text-white hover:border-[#C4526A]/50 transition-all duration-500 rounded-[2px] overflow-hidden bg-white/[0.02] backdrop-blur-sm"
+              className="group relative inline-flex items-center gap-3 px-6 lg:px-7 py-3 lg:py-3.5 border border-white/20 text-[12px] lg:text-[13px] tracking-wide text-[#F8F4F0] hover:text-white hover:border-[#C4526A]/50 transition-all duration-500 rounded-[2px] overflow-hidden bg-white/[0.02] backdrop-blur-sm"
             >
               <span className="relative z-10 flex items-center gap-3 font-medium">
                 <span className="text-[#C4526A] font-mono">//</span>
@@ -112,18 +125,22 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         </div>
 
         {/* Center Side: Image */}
-        <div className="relative w-full h-[45vh] sm:h-[50vh] lg:h-[70vh] flex justify-center items-end max-lg:order-1 max-lg:-mt-[5vh] z-10 pointer-events-none">
+        <div className="relative w-full h-[clamp(300px,48svh,390px)] sm:h-[48vh] lg:h-[70vh] lg:max-h-none flex justify-center items-end max-lg:order-1 z-10 pointer-events-none">
+          <h1 className="absolute top-[4px] left-1/2 z-[8] -translate-x-1/2 font-display font-black text-[clamp(58px,22vw,92px)] leading-none tracking-[-0.045em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#A63C4F] to-[#6B1A2A] opacity-80 whitespace-nowrap lg:hidden select-none">
+            SRIRAM
+          </h1>
+
           {/* Arch styled image container */}
-          <div className="absolute bottom-0 w-[85%] max-w-[380px] lg:w-[min(100%,480px)] lg:max-w-none h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
+          <div className="absolute bottom-[5px] z-[10] w-[78%] max-w-[320px] lg:w-[min(100%,480px)] lg:max-w-none h-[94%] lg:h-[110%] rounded-t-[500px] overflow-hidden bg-[#050102]">
             <img
               ref={photoRef}
               src="/photo.png"
               alt="Sriram — Developer"
-              className="hero-image-anim reveal-trigger w-full h-full object-cover object-top opacity-70 contrast-[1.1] grayscale-[20%] mix-blend-screen"
-              style={{ transitionDelay: '0.3s' }}
+              className="hero-image-anim hero-reveal w-full h-full object-cover object-top opacity-70 contrast-[1.1] grayscale-[20%] mix-blend-screen"
+              style={{ '--delay': '0.3s' } as CSSProperties}
             />
             {/* Bottom fade inside the arch to seamlessly blend with the background */}
-            <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#050102] via-[#050102]/80 to-transparent z-[12]"></div>
+            <div className="absolute inset-x-0 bottom-0 h-[24%] lg:h-[40%] bg-gradient-to-t from-[#050102] via-[#050102]/80 to-transparent z-[12]"></div>
 
             {/* Soft inner glow and 1px top rim light for brushed metal effect */}
             <div className="absolute inset-0 rounded-t-[500px] shadow-[inset_0_0_80px_rgba(114,47,55,0.25),inset_0_1.5px_0_rgba(166,60,79,0.3)] z-[13]"></div>
@@ -136,10 +153,10 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         {/* Right Side: Skills/Services List - Centered Vertically */}
         <div
           ref={skillsRef}
-          className="flex flex-col lg:text-right max-lg:order-3 max-lg:items-center z-20 self-center lg:-mt-[5vh] lg:min-w-[220px]"
+          className="flex flex-col lg:text-right max-lg:order-3 max-lg:items-center max-lg:-mt-1 z-20 self-center lg:-mt-[5vh] lg:min-w-[220px]"
         >
           {/* Label */}
-          <p className="font-mono text-[12px] tracking-[.35em] uppercase text-[#C4526A]/80 font-semibold mb-5 max-lg:hidden drop-shadow-[0_0_8px_rgba(196,82,106,0.3)]">
+          <p className="font-mono text-[10px] lg:text-[12px] tracking-[.32em] lg:tracking-[.35em] uppercase text-[#C4526A]/80 font-semibold mb-2 lg:mb-5 drop-shadow-[0_0_8px_rgba(196,82,106,0.3)]">
             Expertise
           </p>
 
@@ -151,7 +168,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
           ].map((skill) => (
             <div
               key={skill.name}
-              className="skill-item group relative flex items-center gap-3 lg:justify-end max-lg:justify-center py-3 overflow-hidden"
+              className="skill-item group relative flex items-center gap-2 lg:gap-3 lg:justify-end max-lg:justify-center py-1.5 lg:py-3 overflow-hidden"
             >
               {/* Hover scan-line */}
               <span className="absolute inset-0 bg-gradient-to-l from-[#C4526A]/5 to-transparent translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out pointer-events-none" />
@@ -165,7 +182,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
                 className={`relative z-10 font-display tracking-wide text-[clamp(13px,1.1vw,16px)] transition-colors duration-300 ${skill.active
                   ? 'text-white font-semibold'
                   : 'text-[#F8F4F0]/80 group-hover:text-white'
-                  }`}
+                  } max-lg:text-[12px]`}
               >
                 {skill.name}
               </span>
@@ -180,7 +197,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
       </div>
 
       {/* Bottom Ticker bar - Cinematic Premium Version */}
-      <div className="hero-ticker-anim reveal-trigger relative z-[10] w-full border-t border-[#6B1A2A]/30 py-6 bg-black/40 backdrop-blur-md overflow-hidden flex items-center" style={{ transitionDelay: '1.4s' }}>
+      <div className="hero-ticker-anim hero-reveal relative z-[10] w-full border-t border-[#6B1A2A]/30 py-6 bg-black/40 backdrop-blur-md overflow-hidden hidden lg:flex items-center" style={{ '--delay': '1.4s' } as CSSProperties}>
         {/* Cinematic edge fades */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-[11] pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-[11] pointer-events-none"></div>
@@ -251,7 +268,7 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-20 lg:bottom-12 left-1/2 -translate-x-1/2 z-[20] flex flex-col items-center gap-3 pointer-events-none opacity-80">
+      <div className="absolute bottom-20 lg:bottom-12 left-1/2 -translate-x-1/2 z-[20] hidden lg:flex flex-col items-center gap-3 pointer-events-none opacity-80">
         <div className="w-[1px] h-12 bg-[#722F37]/20 overflow-hidden relative">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-[#A63C4F] to-transparent animate-[scroll-down_2s_ease-in-out_infinite]"></div>
         </div>
@@ -264,18 +281,17 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
         @keyframes nameScaleUp { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 
         /* Trigger animations based on .visible class */
-        .hero-bg-text-anim.visible { animation: bgTextReveal 2s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) forwards; }
-        .hero-image-anim.visible { animation: imageReveal 1.8s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) forwards; }
-        .hero-name-anim.visible { animation: nameScaleUp 1.2s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) forwards; }
+        .hero-bg-text-anim.visible { animation: bgTextReveal 2s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both; }
+        .hero-image-anim.visible { animation: imageReveal 1.8s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both; }
+        .hero-name-anim.visible { animation: nameScaleUp 1.2s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both; }
         
-        .hero-sub-anim.visible,
-        .hero-actions-anim.visible,
+        .hero-left-anim.visible,
         .hero-ticker-anim.visible {
-          animation: slideUpCenterReveal 0.8s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) forwards;
+          animation: slideUpCenterReveal 0.8s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both;
         }
 
         /* Reset state */
-        .reveal-trigger:not(.visible) {
+        .hero-reveal:not(.visible) {
           opacity: 0;
           animation: none !important;
         }
