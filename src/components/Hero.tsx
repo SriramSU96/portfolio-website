@@ -11,13 +11,71 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
   useEffect(() => {
     if (!appReady || !heroRef.current) return
 
-    const frame = requestAnimationFrame(() => {
-      heroRef.current?.querySelectorAll('.hero-reveal').forEach((el) => {
-        el.classList.add('visible')
-      })
+    const heroBg = heroRef.current.querySelector<HTMLElement>('.hero-bg-text-anim')
+    const heroName = heroRef.current.querySelector<HTMLElement>('.hero-name-anim')
+    const heroImage = heroRef.current.querySelector<HTMLElement>('.hero-image-anim')
+    const heroLeft = heroRef.current.querySelector<HTMLElement>('.hero-left-anim')
+    const heroTicker = heroRef.current.querySelector<HTMLElement>('.hero-ticker-anim')
+    const skillItems = skillsRef.current?.querySelectorAll<HTMLElement>('.skill-item')
+
+    gsap.set([heroBg, heroName, heroImage, heroLeft, heroTicker], {
+      opacity: 0,
+      y: 20,
+      scale: 0.98,
     })
 
-    return () => cancelAnimationFrame(frame)
+    if (skillItems && skillItems.length) {
+      gsap.set(skillItems, { clipPath: 'inset(0 100% 0 0)', opacity: 0, x: 24 })
+    }
+
+    const tl = gsap.timeline()
+      .to(heroBg, {
+        opacity: 0.1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: 'power3.out',
+      }, 0)
+      .to(heroName, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.1,
+        ease: 'power4.out',
+      }, 0.2)
+      .to(heroImage, {
+        opacity: 0.72,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: 'power4.out',
+      }, 0.35)
+      .to(heroLeft, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: 'power4.out',
+      }, 0.55)
+      .to(skillItems, {
+        clipPath: 'inset(0 0% 0 0)',
+        opacity: 1,
+        x: 0,
+        duration: 0.85,
+        ease: 'power4.out',
+        stagger: 0.1,
+      }, 0.72)
+      .to(heroTicker, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: 'power4.out',
+      }, 1.05)
+
+    return () => {
+      tl.kill()
+    }
   }, [appReady])
 
   useEffect(() => {
@@ -38,24 +96,23 @@ export const Hero = ({ appReady }: { appReady: boolean }) => {
 
   // Skills stagger animation
   useEffect(() => {
-    if (!skillsRef.current) return
+    if (!appReady || !skillsRef.current) return
     const items = skillsRef.current.querySelectorAll<HTMLElement>('.skill-item')
     gsap.set(items, { clipPath: 'inset(0 100% 0 0)', opacity: 0, x: 24 })
-    const onVisible = () => {
-      gsap.to(items, {
+    const tl = gsap.timeline({ delay: 0.1 })
+      .to(items, {
         clipPath: 'inset(0 0% 0 0)',
         opacity: 1,
         x: 0,
-        duration: 0.9,
+        duration: 0.1,
         ease: 'power4.out',
-        stagger: 0.12,
-        delay: 1.1,
+        stagger: 0.1,
       })
+
+    return () => {
+      tl.kill()
     }
-    // fire once hero is ready
-    const t = setTimeout(onVisible, 300)
-    return () => clearTimeout(t)
-  }, [])
+  }, [appReady])
 
   useEffect(() => {
     const onScroll = () => {

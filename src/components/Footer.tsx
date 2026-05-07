@@ -20,11 +20,24 @@ export const Footer = () => {
         </div>
 
         <div className="footer-links flex flex-wrap justify-center gap-6 md:gap-8 w-full md:w-auto">
-          {['GitHub', 'LinkedIn', 'Email'].map((link, i) => (
-            <a key={i} href="#" className="footer-link font-mono text-[12px] tracking-[.3em] uppercase text-white/70 transition-colors duration-400 hover:text-[#C4526A]">
-              {link}
-            </a>
-          ))}
+          <a
+            href="https://github.com/SriramSU96"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link font-mono text-[12px] tracking-[.3em] uppercase text-white/70 transition-colors duration-400 hover:text-[#C4526A]"
+          >
+            GitHub
+          </a>
+        
+          <a
+            href="mailto:Sriramsekardev@gmail.com"
+            className="footer-link font-mono text-[12px] tracking-[.3em] uppercase text-white/70 transition-colors duration-400 hover:text-[#C4526A]"
+          >
+            Email
+          </a>
+            <span className="footer-link font-mono text-[12px] tracking-[.3em] uppercase text-white/40 cursor-not-allowed">
+            LinkedIn
+          </span>
         </div>
 
       </div>

@@ -146,44 +146,73 @@ export const Navbar = () => {
       {/* Mobile overlay */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-[490] flex flex-col items-center justify-center bg-[#050102] transition-all duration-500 ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[510] ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       >
-        {/* Subtle background accent */}
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#8B2035]/5 rounded-full blur-[100px] pointer-events-none" />
-
-        <ul className="flex flex-col items-center gap-10 relative z-10">
-          {NAV_LINKS.map((l, i) => (
-            <li
-              key={l.href}
-              className={`transition-all duration-500 ${mobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-              style={{ transitionDelay: mobileOpen ? `${i * 70 + 80}ms` : '0ms' }}
-            >
-              <a
-                href={l.href}
-                onClick={e => smoothScroll(e, l.href)}
-                className={`font-display font-black text-[clamp(36px,9vw,64px)] tracking-[-0.03em] transition-colors duration-300 ${
-                  activeHref === l.href ? 'text-[#C4526A]' : 'text-white hover:text-white/60'
-                }`}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`mt-16 relative z-10 text-[13px] tracking-[.2em] uppercase text-[#F8F4F0]/70 hover:text-[#C4526A] transition-all duration-400 ${
+        <button
+          type="button"
+          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
             mobileOpen ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ transitionDelay: mobileOpen ? '380ms' : '0ms' }}
+          aria-hidden="true"
+          onClick={() => setMobileOpen(false)}
+        />
+
+        <div
+          className={`absolute inset-y-0 right-0 flex w-full max-w-[320px] flex-col bg-[#09060b]/95 border-l border-white/10 px-6 py-5 transition-transform duration-500 ease-out ${
+            mobileOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         >
-          Resume ↗
-        </a>
+          <div className="flex items-center justify-between mb-6">
+            <a
+              href="#hero"
+              onClick={e => smoothScroll(e, '#hero')}
+              className="font-display font-black text-[18px] tracking-[-0.02em] text-white hover:text-[#C4526A] transition-colors duration-300"
+            >
+              Sriram
+            </a>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white hover:border-[#C4526A]/40 hover:text-[#C4526A] transition-colors duration-300"
+            >
+              <span className="text-xl">×</span>
+            </button>
+          </div>
+
+          <nav className="flex-1 overflow-y-auto">
+            <ul className="flex flex-col gap-6 text-left">
+              {NAV_LINKS.map((l, i) => (
+                <li
+                  key={l.href}
+                  className={`transition-all duration-500 ${mobileOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'}`}
+                  style={{ transitionDelay: mobileOpen ? `${i * 70 + 80}ms` : '0ms' }}
+                >
+                  <a
+                    href={l.href}
+                    onClick={e => smoothScroll(e, l.href)}
+                    className={`font-display font-black text-[24px] tracking-[-0.02em] leading-none transition-colors duration-300 ${
+                      activeHref === l.href ? 'text-[#C4526A]' : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="pt-6 border-t border-white/10">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-[13px] tracking-[.2em] uppercase text-[#F8F4F0]/80 hover:bg-[#C4526A]/10 hover:text-[#C4526A] transition-all duration-300"
+            >
+              Resume ↗
+            </a>
+          </div>
+        </div>
       </div>
     </>
   )
