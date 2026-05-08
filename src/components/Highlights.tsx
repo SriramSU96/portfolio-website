@@ -57,7 +57,7 @@ export const Highlights = () => {
           <div className="col-span-7 highlights-list flex flex-col gap-6">
             {ITEMS.map((item, i) => (
               <div key={i}
-                className="reveal highlight-item flex items-center gap-8 p-8 border border-white/5 bg-[#14080A]/60 backdrop-blur-md transition-all duration-500 hover:translate-x-3 hover:border-[#6B1A2A]/40 hover:bg-[#1A0D10] group"
+                className="reveal highlight-item flex flex-col items-start gap-6 p-8 border border-white/5 bg-[#14080A]/60 backdrop-blur-md transition-all duration-500 hover:translate-x-0 sm:hover:translate-x-3 hover:border-[#6B1A2A]/40 hover:bg-[#1A0D10] group"
                 style={{ transitionDelay: `${(i + 4) * 0.1}s` }}
               >
                 <div className="hi-icon w-12 h-12 flex-shrink-0 border border-[#6B1A2A]/40 flex items-center justify-center rounded-lg text-[#C4526A] group-hover:bg-[#C4526A]/10 group-hover:scale-110 shadow-[0_0_15px_rgba(107,26,42,0.1)] transition-all duration-500">
@@ -65,11 +65,11 @@ export const Highlights = () => {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </div>
-                <p className="hi-txt text-[18px] text-white/80 leading-relaxed font-normal group-hover:text-white transition-colors duration-300">
+                <p className="hi-txt text-[16px] sm:text-[18px] text-white/80 leading-relaxed font-normal group-hover:text-white transition-colors duration-300 break-words">
                   {item}
                 </p>
                 {/* Accent line on right */}
-                <div className="ml-auto w-[1px] h-6 bg-gradient-to-b from-transparent via-[#C4526A]/30 to-transparent group-hover:h-12 transition-all duration-500"></div>
+                <div className="hidden md:block ml-auto w-[1px] h-6 bg-gradient-to-b from-transparent via-[#C4526A]/30 to-transparent group-hover:h-12 transition-all duration-500"></div>
               </div>
             ))}
           </div>

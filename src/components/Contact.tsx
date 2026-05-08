@@ -120,7 +120,7 @@ export const Contact = () => {
   }
 
   const inputBase =
-    'w-full bg-[#0E0608]/75 border border-[#6B1A2A]/45 rounded-xl px-4 py-2.5 text-white text-[14px] placeholder:text-[#D4C5BA]/35 outline-none hover:border-[#C4526A]/45 focus:border-[#C4526A]/75 focus:bg-[#14080A] transition-all duration-300 font-light'
+    'w-full bg-[#0E0608]/75 border border-[#6B1A2A]/45 rounded-xl px-4 py-2.5 text-white text-[14px] placeholder:text-[#D4C5BA]/35 outline-none hover:border-[#C4526A]/45 focus:border-[#C4526A]/75 focus:bg-[#14080A] transition-all duration-300 font-light font-sans appearance-none'
   const labelBase =
     'block font-mono text-[11px] tracking-[0.22em] text-[#C4526A] uppercase mb-2 font-bold subpixel-antialiased'
 

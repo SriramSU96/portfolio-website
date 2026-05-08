@@ -74,7 +74,7 @@ export const Navbar = () => {
         id="nav"
         className={`
           fixed top-0 left-0 right-0 z-[500] flex items-center justify-between
-          px-10 xl:px-20 transition-all duration-700
+          px-4 sm:px-6 md:px-10 xl:px-20 max-w-full overflow-hidden transition-all duration-700
           ${scrolled
             ? 'py-4 bg-[#050102]/95 backdrop-blur-2xl border-b border-white/[0.04]'
             : 'py-8 bg-transparent'
@@ -146,7 +146,7 @@ export const Navbar = () => {
       {/* Mobile overlay */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-[510] ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        className={`fixed inset-0 z-[510] overflow-x-hidden ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       >
         <button
           type="button"
@@ -161,6 +161,10 @@ export const Navbar = () => {
           className={`absolute inset-y-0 right-0 flex w-full max-w-[320px] flex-col bg-[#09060b]/95 border-l border-white/10 px-6 py-5 transition-transform duration-500 ease-out ${
             mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
+          style={{
+            paddingBottom: 'calc(env(safe-area-inset-bottom, 1rem) + 1.25rem)',
+            paddingTop: 'calc(env(safe-area-inset-top, 0.75rem) + 1rem)',
+          }}
         >
           <div className="flex items-center justify-between mb-6">
             <a
