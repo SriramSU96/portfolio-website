@@ -25,7 +25,7 @@ const ITEMS = [
 export const CurrentlyWorkingOn = () => {
   return (
     <section id="working" className="bg-[#140A0C] py-[120px] max-md:py-[80px] relative overflow-hidden">
-      <div className="wrap max-w-[1280px] mx-auto px-16 max-md:px-6">
+      <div className="wrap max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16">
 
         <div className="reveal mb-16">
           <div className="sec-label flex items-center gap-[14px] mb-4">

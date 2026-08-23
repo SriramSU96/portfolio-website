@@ -21,7 +21,7 @@ export const Highlights = () => {
         HIGHLIGHTS
       </div>
 
-      <div className="wrap max-w-[1400px] mx-auto px-20 max-md:px-8 relative z-10">
+      <div className="wrap max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 relative z-10">
         <div className="grid grid-cols-12 gap-16 items-center max-lg:flex max-lg:flex-col max-lg:gap-16">
 
           {/* Intro & Counters Column */}

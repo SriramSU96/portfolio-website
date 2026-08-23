@@ -23,7 +23,7 @@ export const CareerGoal = () => {
         CAREER GOAL CAREER GOAL CAREER GOAL
       </div>
 
-      <div className="wrap max-w-[1280px] mx-auto px-16 max-md:px-6 relative z-10 w-full">
+      <div className="wrap max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 relative z-10 w-full">
         <div className="goal-content">
           <div className="reveal-step mb-8">
             <div className="sec-label flex items-center gap-[14px] mb-4">

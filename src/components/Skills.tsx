@@ -41,7 +41,7 @@ export const Skills = () => {
     <section id="skills" className="bg-[#0E0608] relative overflow-hidden py-[120px] max-md:py-[80px]">
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(107,26,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(107,26,42,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>
 
-      <div className="wrap max-w-[1280px] mx-auto px-16 max-md:px-6 relative z-10">
+      <div className="wrap max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         <div className="reveal mb-12">
           <div className="sec-label flex items-center gap-[14px] mb-4">
             <div className="sec-label-line w-7 h-[1px] bg-[#6B1A2A]"></div>
@@ -52,7 +52,7 @@ export const Skills = () => {
           </h2>
         </div>
 
-        <div className="skills-grid grid grid-cols-3 gap-6 max-md:grid-cols-1 max-md:gap-5">
+        <div className="skills-grid grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 max-md:gap-5">
           {SKILLS.map((sk, i) => (
             <div
               key={i}

@@ -146,7 +146,7 @@ export const Contact = () => {
         </svg>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-20 max-md:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 relative z-10">
         {/* Section label */}
         <div className="mb-12">
           <motion.div

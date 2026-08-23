@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react'
 
 export const About = () => {
   const photoRef = useRef<HTMLImageElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
+  // Scroll parallax on photo
   useEffect(() => {
     const onScroll = () => {
       if (photoRef.current) {
@@ -13,14 +15,30 @@ export const About = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Local reveal observer — works even inside nested scroll containers
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+    const els = section.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-word, .reveal-step')
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible')
+        else e.target.classList.remove('visible')
+      }),
+      { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
+    )
+    els.forEach(el => io.observe(el))
+    return () => io.disconnect()
+  }, [])
+
   return (
-    <section id="about" className="bg-[#140A0C] relative overflow-hidden py-[120px] max-md:py-[80px]">
+    <section ref={sectionRef} id="about" className="bg-[#140A0C] relative overflow-hidden py-[120px] max-md:py-[80px]">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#6B1A2A] to-transparent"></div>
 
-      <div className="wrap max-w-[1280px] mx-auto px-16 max-md:px-6">
-        <div className="about-grid grid grid-cols-[1fr_1.4fr] gap-20 items-center max-md:grid-cols-1 max-md:gap-12">
+      <div className="wrap max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="about-grid grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-center">
 
-          <div className="reveal-l">
+          <div className="reveal-left">
             <div className="about-photo-card relative border border-[#6B1A2A]/25 overflow-hidden bg-[#1A0D10] group">
               <div className="corner-tl absolute top-[-1px] left-[-1px] w-6 h-6 border-t-2 border-l-2 border-[#C4526A] z-[2]"></div>
               <div className="corner-br absolute bottom-[-1px] right-[-1px] w-6 h-6 border-b-2 border-r-2 border-[#C4526A] z-[2]"></div>
@@ -41,7 +59,7 @@ export const About = () => {
             </div>
           </div>
 
-          <div className="about-text reveal-r flex flex-col gap-6">
+          <div className="about-text reveal-right flex flex-col gap-6">
             <div>
               <div className="reveal-step flex items-center gap-[14px] mb-4">
                 <div className="sec-label-line w-7 h-[1px] bg-[#6B1A2A]"></div>

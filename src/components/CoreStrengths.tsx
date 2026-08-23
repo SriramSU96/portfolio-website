@@ -26,7 +26,7 @@ export const CoreStrengths = () => {
     <section id="strengths" className="bg-[#0E0608] py-[120px] max-md:py-[80px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(107,26,42,0.06),transparent_70%)] pointer-events-none"></div>
 
-      <div className="wrap max-w-[1780px] mx-auto px-16 max-md:px-6 relative z-10">
+      <div className="wrap max-w-[1780px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         <div className="reveal text-center mb-16">
           <div className="sec-label flex items-center justify-center gap-[14px] mb-5">
             <div className="sec-label-line w-8 h-[1px] bg-[#6B1A2A]"></div>
@@ -38,7 +38,7 @@ export const CoreStrengths = () => {
           </h2>
         </div>
 
-        <div className="strengths-grid grid grid-cols-4 gap-6 max-md:grid-cols-1 max-md:gap-5">
+        <div className="strengths-grid grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-md:gap-5">
           {STRENGTHS.map((s, i) => (
             <div
               key={i}
